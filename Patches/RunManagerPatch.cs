@@ -11,14 +11,6 @@ namespace CustomLevelNames.Patches
         [HarmonyPostfix]
         static void AwakePatch(RunManager __instance)
         {
-            if (CustomLevelNamesMod.logLoadedLevels)
-            {
-                CustomLevelNamesMod.logLoadedLevels = false;
-                string[] allLevels = new string[__instance.levels.Count];
-                for (int i = 0; i < allLevels.Length; i++)
-                    allLevels[i] = __instance.levels[i].NarrativeName + " (" + __instance.levels[i].ResourcePath + ")";
-                CustomLevelNamesMod.log.LogInfo($"Found {allLevels.Length} extraction levels: {allLevels.Join()}");
-            }
             if ((SemiFunc.RunIsLevel() || SemiFunc.RunIsArena() || SemiFunc.RunIsShop()) && CustomLevelNamesMod.readyToShuffle)
             {
                 bool didShuffle = false;
@@ -66,6 +58,20 @@ namespace CustomLevelNames.Patches
             }
             if (SemiFunc.RunIsArena())
                 CustomLevelNamesMod.readyToShuffle = true;
+        }
+
+        [HarmonyPatch("Update")]
+        [HarmonyPostfix]
+        static void UpdatePatch(RunManager __instance)
+        {
+            if (CustomLevelNamesMod.logLoadedLevels && GameDirector.instance.currentState == GameDirector.gameState.Main)
+            {
+                CustomLevelNamesMod.logLoadedLevels = false;
+                string[] allLevels = new string[__instance.levels.Count];
+                for (int i = 0; i < allLevels.Length; i++)
+                    allLevels[i] = __instance.levels[i].NarrativeName + " (" + __instance.levels[i].ResourcePath + ")";
+                CustomLevelNamesMod.log.LogInfo($"Found {allLevels.Length} extraction levels: {allLevels.Join()}");
+            }
         }
     }
 }
