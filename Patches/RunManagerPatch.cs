@@ -7,9 +7,9 @@ namespace CustomLevelNames.Patches
     [HarmonyPatch(typeof(RunManager))]
     internal class RunManagerPatch
     {
-        [HarmonyPatch("Awake")]
+        [HarmonyPatch("ChangeLevel")]
         [HarmonyPostfix]
-        static void AwakePatch(RunManager __instance)
+        static void ChangeLevelPatch(RunManager __instance)
         {
             if ((SemiFunc.RunIsLevel() || SemiFunc.RunIsArena() || SemiFunc.RunIsShop()) && CustomLevelNamesMod.readyToShuffle)
             {
