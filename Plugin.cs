@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using System.Collections.Generic;
 
 namespace CustomLevelNames
 {
@@ -9,13 +10,14 @@ namespace CustomLevelNames
     {
         const string mGUID = "eXish.CustomLevelNames";
         const string mName = "CustomLevelNames";
-        const string mVersion = "1.0.2";
+        const string mVersion = "1.0.3";
 
         readonly Harmony harmony = new Harmony(mGUID);
 
         internal static CustomLevelNamesMod instance;
         internal static ManualLogSource log;
-        internal static bool logLoadedLevels = true;
+        internal static Dictionary<string, string> storedLevelNames = new Dictionary<string, string>();
+        internal static bool doInitialSetup = true;
         internal static bool readyToShuffle = true;
 
         void Awake()
