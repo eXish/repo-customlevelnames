@@ -1,3 +1,6 @@
+## CustomLevelNames [1.0.4]
+- Fixed level names only being replaced on a shuffle
+
 ## CustomLevelNames [1.0.3]
 - Fixed the mod not working in multiplayer
 - Fixed log spam when shuffleEachLevel was enabled and a run reset
