@@ -1,3 +1,6 @@
+## CustomLevelNames [1.0.6]
+- Changed the patch for getting extraction levels to after all levels are loaded by REPOLib
+
 ## CustomLevelNames [1.0.5]
 - Fixed error with the mod trying to change the text of the new splash screen
 
