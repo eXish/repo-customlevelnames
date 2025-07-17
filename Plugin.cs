@@ -10,7 +10,7 @@ namespace CustomLevelNames
     {
         const string mGUID = "eXish.CustomLevelNames";
         const string mName = "CustomLevelNames";
-        const string mVersion = "1.0.4";
+        const string mVersion = "1.0.5";
 
         readonly Harmony harmony = new Harmony(mGUID);
 

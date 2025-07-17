@@ -1,3 +1,6 @@
+## CustomLevelNames [1.0.5]
+- Fixed error with the mod trying to change the text of the new splash screen
+
 ## CustomLevelNames [1.0.4]
 - Fixed level names only being replaced on a shuffle
 

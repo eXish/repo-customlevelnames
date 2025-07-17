@@ -56,7 +56,8 @@ namespace CustomLevelNames.Patches
                 if (!ConfigManager.shuffleEachLevel.Value)
                     CustomLevelNamesMod.readyToShuffle = false;
             }
-            __instance.levelNameText.text = CustomLevelNamesMod.storedLevelNames[RunManager.instance.levelCurrent.NarrativeName];
+            if (CustomLevelNamesMod.storedLevelNames.ContainsKey(RunManager.instance.levelCurrent.NarrativeName))
+                __instance.levelNameText.text = CustomLevelNamesMod.storedLevelNames[RunManager.instance.levelCurrent.NarrativeName];
             if (SemiFunc.RunIsArena())
                 CustomLevelNamesMod.readyToShuffle = true;
         }
