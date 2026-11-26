@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace CustomLevelNames.Patches
@@ -39,7 +40,7 @@ namespace CustomLevelNames.Patches
                 }
                 for (int i = 0; i < RunManager.instance.levels.Count; i++)
                 {
-                    List<string> levelNames = ConfigManager.GetLevelNames(RunManager.instance.levels[i].ResourcePath);
+                    List<string> levelNames = ConfigManager.GetLevelNames(Regex.Replace(RunManager.instance.levels[i].name, "^Level - ", ""));
                     if (levelNames.Count > 0)
                     {
                         string oldName = CustomLevelNamesMod.storedLevelNames[RunManager.instance.levels[i].NarrativeName];

@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System.Text.RegularExpressions;
 
 namespace CustomLevelNames.Patches
 {
@@ -15,7 +16,7 @@ namespace CustomLevelNames.Patches
                 string[] allLevels = new string[RunManager.instance.levels.Count];
                 for (int i = 0; i < allLevels.Length; i++)
                 {
-                    allLevels[i] = RunManager.instance.levels[i].NarrativeName + " (" + RunManager.instance.levels[i].ResourcePath + ")";
+                    allLevels[i] = RunManager.instance.levels[i].NarrativeName + " (" + Regex.Replace(RunManager.instance.levels[i].name, "^Level - ", "") + ")";
                     CustomLevelNamesMod.storedLevelNames.Add(RunManager.instance.levels[i].NarrativeName, RunManager.instance.levels[i].NarrativeName.ToUpper());
                 }
                 CustomLevelNamesMod.storedLevelNames.Add("Disposal Arena", "DISPOSAL ARENA");

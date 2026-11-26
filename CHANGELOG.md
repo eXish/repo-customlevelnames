@@ -1,3 +1,6 @@
+## CustomLevelNames [1.0.7]
+- Fixed the mod causing the game to get stuck loading due to a removed variable in v0.4.0 of REPO
+
 ## CustomLevelNames [1.0.6]
 - Changed the patch for getting extraction levels to after all levels are loaded by REPOLib
 
